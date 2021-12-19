@@ -1,12 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Routing from './Routing';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+import store from './store/store';
+import axios from "axios"
+import { Container } from '@mui/material';
+
+axios.defaults.baseURL = "https://jsonplaceholder.typicode.com/";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <Container style={{ backgroundColor: '#eaeef3', padding: 20 }}>
+        <Container maxWidth="lg">
+          <Routing />
+        </Container>
+      </Container>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
