@@ -9,3 +9,7 @@ export const SET_LOADING_FALSE = "SET_LOADING_FALSE"
 
 export const SET_ERROR = "SET_ERROR"
 export const CLEAR_ERROR = "CLEAR_ERROR"
+
+
+export const SET_SEARCH_TEXT = "SET_SEARCH_TEXT"
+export const CLEAR_SEARCH_TEXT = "CLEAR_SEARCH_TEXT"

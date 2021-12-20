@@ -1,11 +1,12 @@
-import { CLEAR_CURRENT_POST, FETCH_BLOGS, FETCH_COMMENTS, SET_CURRENT_POST } from "../common/actionTypes";
+import { CLEAR_CURRENT_POST, FETCH_BLOGS, FETCH_COMMENTS, SET_CURRENT_POST, SET_SEARCH_TEXT } from "../common/actionTypes";
 import getUsernameFromId from "../common/functions/getUsernameFromId";
 
 const initDataState = {
     posts: [],
     users: [],
     currentPost: null,
-    currentPostComments: null
+    currentPostComments: null,
+    searchText: ""
 }
 
 const dataReducer = (state = initDataState, action) => {
@@ -19,6 +20,7 @@ const dataReducer = (state = initDataState, action) => {
             return {
                 ...state,
                 posts: postsWithUserInfo,
+                allPosts: postsWithUserInfo,
                 users
             }
 
@@ -38,6 +40,11 @@ const dataReducer = (state = initDataState, action) => {
                 ...state,
                 currentPost: null,
                 currentPostComments: null
+            }
+        case SET_SEARCH_TEXT:
+            return {
+                ...state,
+                searchText: action.payload.data
             }
         default:
             break;
